@@ -59,18 +59,8 @@ fi
 Mac下：
 
 ```
-boot2docker ssh
-sudo vi /var/lib/boot2docker/profile
-EXTRA_ARGS="--registry-mirror=http://192.168.11.180:5000"
-boot2docker restart
-```
-
-Ubuntu下:
-
-```
-vi /etc/default/docker
-DOCKER_OPTS=" --registry-mirror http://192.168.11.180:5000 --insecure-registry 192.168.11.180:5000"
-service docker restart
+docker-machine ssh
+docker-machine restart
 ```
 
 ## 启动EvaSkeleton
@@ -120,12 +110,12 @@ sudo vi /etc/hosts
 现在可以通过访问`http://docker/`来查看Web服务器根目录
 
 
-构建EvaSkeleton项目文件
+构建项目文件
 
 ```
 cd ~/opt/htdocs
-git clone https://github.com/EvaEngine/EvaSkeleton.git
-cd EvaSkeleton
+git clone https://github.com/rustphp/Dockerfiles.git
+cd PHPOnDocker
 cp config/config.local.dev.php config/config.local.php
 make install
 ```

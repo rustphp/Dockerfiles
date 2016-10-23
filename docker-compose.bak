@@ -13,7 +13,9 @@ php:
       - "9000:9000"
     links:
       - "mysql"
+      - "memcache"
       - "redis"
+      - "gearman"
     volumes:
       - ~/opt:/opt
 
@@ -26,7 +28,19 @@ mysql:
     environment:
       MYSQL_ROOT_PASSWORD: 123456
 
+memcache:
+    build: ./memcache
+    ports:
+      - "11211:11211"
+
 redis:
     build: ./redis
     ports:
       - "6379:6379"
+
+gearman:
+    build: ./gearman
+    ports:
+      - "4730:4730"
+    volumes:
+      - ~/opt:/opt
