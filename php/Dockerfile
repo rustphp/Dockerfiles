@@ -1,7 +1,7 @@
-FROM php:5.6-fpm
+FROM php:7.0-fpm
 
 # Install env
-ADD sources.list    /etc/apt/sources.list
+#ADD sources.list    /etc/apt/sources.list
 RUN apt-get update && apt-get install -y \
         git \
         libgearman-dev \
